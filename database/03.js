@@ -22,13 +22,22 @@ const courseSchema = mongoose.Schema({
 const Course = mongoose.model('Course', courseSchema) //courses
 
 //集合规则实例
-//创建文档
-const course = new Course({
+//创建文档+向集合中插入文档
+// Course.create({
+//     name: 'mongoDB 基础',
+//     author: '黑马',
+//   isPublished: false
+// }, (err, result) => {
+//         console.log(err);
+//         console.log(result);
+// })
+
+Course.create({
     name: 'mongoDB 基础',
     author: '黑马',
-  isPublished: true
+  isPublished: false
 })
-
-//将文档插入数据库中
-course.save()
-
+    .then(result => {
+    console.log(result);
+    })
+.catch(err => console.log(err))

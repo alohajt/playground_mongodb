@@ -28,7 +28,7 @@ const postSchema = new mongoose.Schema({
 	},
 	publishDate: {
 		type: Date,
-		// 默认值
+		// 默认值 terminal不显示 compass显示
 		default: Date.now
 	},
 	category: {
@@ -44,8 +44,7 @@ const postSchema = new mongoose.Schema({
 		validate: {
 			validator: v => {
 				// 返回布尔值
-				// true 验证成功
-				// false 验证失败
+				// true 验证成功  false 验证失败
 				// v 要验证的值
 				return v && v.length > 4
 			},
@@ -65,6 +64,6 @@ Post.create({title:'aa', age: 60, category: 'java', author: 'bd'})
 		// 循环错误信息对象
 		for (var attr in err) {
 			// 将错误信息打印到控制台中
-			console.log(err[attr]['message']);
+			console.log(err[attr]['message']); 
 		}
 	})
